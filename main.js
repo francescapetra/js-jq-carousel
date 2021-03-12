@@ -33,7 +33,7 @@ next.click(
       if (imgShow.hasClass("last") == true) {
         imgFirst.addClass("active");
       }else {
-        imgShow.prev().addClass("active");
+        imgShow.next().addClass("active");
       }
   }
 );
