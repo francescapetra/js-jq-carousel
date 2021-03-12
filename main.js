@@ -1,30 +1,39 @@
 function previousSlide(){
   var imgShow = $(".images img.active");
   var imgLast = $(".images img.last");
-  var imgFirst = $(".images img.first");
+  var bulletShow = $(".fas.fa-circle.active")
+  var bulletLast = $(".fas.fa-circle.last")
 
   imgShow.removeClass("active");
+  bulletShow.removeClass("active");
 
-  if (imgShow.hasClass("first") == true) {
+  if (imgShow.hasClass("first") == true && bulletShow.hasClass("first") == true) {
     imgLast.addClass("active");
-
+    bulletLast.addClass("active");
   }else {
     imgShow.prev().addClass("active");
+    bulletShow.prev().addClass("active");
   }
+  console.log(bulletShow);
 }
 
 function nextSlide(){
   var imgShow = $(".images img.active");
-  var imgLast = $(".images img.last");
   var imgFirst = $(".images img.first");
+  var bulletShow = $(".fas.fa-circle.active")
+  var bulletFirst = $(".fas.fa-circle.first")
 
   imgShow.removeClass("active");
+  bulletShow.removeClass("active");
 
-  if (imgShow.hasClass("last") == true) {
+  if (imgShow.hasClass("last") == true && bulletShow.hasClass("last") == true) {
     imgFirst.addClass("active");
+    bulletFirst.addClass("active");
   }else {
     imgShow.next().addClass("active");
+    bulletShow.next().addClass("active");
   }
+  console.log (bulletShow);
 }
 
 
