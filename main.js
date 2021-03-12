@@ -1,3 +1,33 @@
+function previousSlide(){
+  var imgShow = $(".images img.active");
+  var imgLast = $(".images img.last");
+  var imgFirst = $(".images img.first");
+
+  imgShow.removeClass("active");
+
+  if (imgShow.hasClass("first") == true) {
+    imgLast.addClass("active");
+
+  }else {
+    imgShow.prev().addClass("active");
+  }
+}
+
+function nextSlide(){
+  var imgShow = $(".images img.active");
+  var imgLast = $(".images img.last");
+  var imgFirst = $(".images img.first");
+
+  imgShow.removeClass("active");
+
+  if (imgShow.hasClass("last") == true) {
+    imgFirst.addClass("active");
+  }else {
+    imgShow.next().addClass("active");
+  }
+}
+
+
 $(function(){
 
 var previous = $(".prev");
@@ -6,36 +36,16 @@ var bullet = $(".nav .fas.fa-circle");
 //click al prev
 previous.click(
   function(){
-    var imgShow = $(".images img.active");
-    var imgLast = $(".images img.last");
-    var imgFirst = $(".images img.first");
-
-    imgShow.removeClass("active");
-
-      if (imgShow.hasClass("first") == true) {
-        imgLast.addClass("active");
-
-      }else {
-        imgShow.prev().addClass("active");
-      }
+    previousSlide();
   }
 );
 
 // click al next
 next.click(
   function(){
-    var imgShow = $(".images img.active");
-    var imgLast = $(".images img.last");
-    var imgFirst = $(".images img.first");
-
-    imgShow.removeClass("active");
-
-      if (imgShow.hasClass("last") == true) {
-        imgFirst.addClass("active");
-      }else {
-        imgShow.next().addClass("active");
-      }
+    nextSlide();
   }
+
 );
 // bulletShow
  bullet.click(
@@ -54,27 +64,17 @@ next.click(
   }
 );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// keydown
+$(document).keydown(
+  function(e){
+    if (e.keyCode == 37){
+      previousSlide();
+    }
+    else if (e.keyCode == 39){
+      nextSlide();
+    }
+  }
+);
 
   }
 );
