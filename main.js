@@ -3,7 +3,7 @@ $(function(){
 // creo variabili esterne per i miei due elementi click
 var previous = $(".prev");
 var next = $(".next");
-var bullet = $(".nav .fa-circle")
+var bullet = $(".nav >i")
 //click al prev
 previous.click(
   function(){
@@ -38,18 +38,21 @@ next.click(
   }
 );
 
-// bullet.click(
-//   function(){
-//     var imgShow = $(".images img.active");
-//     var imgLast = $(".images img.last");
-//
-//     bullet.removeClass("active");
-//
-//       if (bullet.hasClass("first") == true) {
-//         bullet.addClass("active");
-//   }
-// }
-// );
+bullet.click(
+  function(){
+    var bulletShow = $(".nav i.active");
+    var bulletLast = $(".nav i.last");
+    var bulletFirst = $(".nav i.first");
+
+    bulletShow.removeClass("active");
+
+      if (bulletShow.hasClass("last") == true) {
+        bulletShow.addClass("active");
+      }else {
+        bulletShow.next().addClass("active");
+  }
+}
+);
 
 
 
