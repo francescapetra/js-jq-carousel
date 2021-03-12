@@ -1,9 +1,8 @@
 $(function(){
-//alert("debug");
-// creo variabili esterne per i miei due elementi click
+
 var previous = $(".prev");
 var next = $(".next");
-var bullet = $(".nav >i")
+var bullet = $(".nav .fas.fa-circle");
 //click al prev
 previous.click(
   function(){
@@ -21,6 +20,7 @@ previous.click(
       }
   }
 );
+
 // click al next
 next.click(
   function(){
@@ -37,22 +37,23 @@ next.click(
       }
   }
 );
-
-bullet.click(
+// bulletShow
+ bullet.click(
   function(){
-    var bulletShow = $(".nav i.active");
-    var bulletLast = $(".nav i.last");
-    var bulletFirst = $(".nav i.first");
+  var imgNow = $(".images img.active");
+  var img = $(".images img");
+  var bulletShow = $(".nav .fas.fa-circle.active")
+  var indice = bullet.index($(this));
 
-    bulletShow.removeClass("active");
 
-      if (bulletShow.hasClass("last") == true) {
-        bulletShow.addClass("active");
-      }else {
-        bulletShow.next().addClass("active");
+  $(this).addClass("active");
+  bulletShow.removeClass("active");
+  imgNow.removeClass("active");
+  img.eq(indice).addClass("active");
+
   }
-}
 );
+
 
 
 
